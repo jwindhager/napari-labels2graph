@@ -2,3 +2,14 @@ name: napari-labels2graph
 display_name: napari-labels2graph
 contributions:
   commands:
+    - id: napari-labels2graph.make_delaunay_graph_layer
+      title: Create Delaunay graph layer from labels layer
+      python_name: napari_labels2graph:make_delaunay_graph_layer
+    - id: napari-labels2graph.make_distance_graph_layer
+      title: Create distance graph layer from labels layer
+      python_name: napari_labels2graph:make_distance_graph_layer
+  widgets:
+    - command: napari-labels2graph.make_delaunay_graph_layer
+      display_name: Create Delaunay graph
+    - command: napari-labels2graph.make_distance_graph_layer
+      display_name: Create distance graph

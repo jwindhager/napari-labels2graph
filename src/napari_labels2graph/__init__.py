@@ -3,4 +3,6 @@ try:
 except ImportError:
     __version__ = "unknown"
 
-__all__ = ()
+from ._commands import make_delaunay_graph_layer, make_distance_graph_layer
+
+__all__ = ["make_delaunay_graph_layer", "make_distance_graph_layer"]
