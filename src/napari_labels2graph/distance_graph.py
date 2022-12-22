@@ -25,26 +25,26 @@ def _to_triu_indices(k: np.ndarray, n: int) -> Tuple[np.ndarray, np.ndarray]:
 def get_centroid_distance_neighbors(
     labels: np.ndarray,
     centroids: np.ndarray,
-    distance_metric: str = "euclidean",
-    max_distance: float = 0.0,
+    dist_metric: str = "euclidean",
+    max_dist: float = 0.0,
     max_k: int = 0,
 ) -> Tuple[np.ndarray, np.ndarray]:
-    condensed_dists = pdist(centroids, metric=distance_metric)
+    condensed_dists = pdist(centroids, metric=dist_metric)
     if max_k > 0:
         max_k = min(max_k, len(labels) - 1)
         dist_mat = squareform(condensed_dists, checks=False).astype(float)
         np.fill_diagonal(dist_mat, np.inf)
         knn_ind = np.argpartition(dist_mat, max_k - 1)[:, :max_k]
-        if max_distance > 0.0:
+        if max_dist > 0.0:
             knn_dists = np.take_along_axis(dist_mat, knn_ind, -1)
-            ind1, ind2 = np.nonzero(knn_dists <= max_distance)
+            ind1, ind2 = np.nonzero(knn_dists <= max_dist)
             ind2 = knn_ind[(ind1, ind2)]
         else:
             ind1 = np.repeat(np.arange(len(labels)), max_k)
             ind2 = np.ravel(knn_ind)
         dists = dist_mat[(ind1, ind2)]
-    elif max_distance > 0.0:
-        (condensed_ind,) = np.nonzero(condensed_dists <= max_distance)
+    elif max_dist > 0.0:
+        (condensed_ind,) = np.nonzero(condensed_dists <= max_dist)
         ind1, ind2 = _to_triu_indices(condensed_ind, len(labels))
         dists = condensed_dists[condensed_ind]
         ind1, ind2, dists = (
@@ -59,12 +59,12 @@ def get_centroid_distance_neighbors(
 
 
 def get_euclidean_contour_distance_neighbors(
-    labels_img: np.ndarray, max_distance: float = 0.0, max_k: int = 0
+    labels_img: np.ndarray, max_dist: float = 0.0, max_k: int = 0
 ) -> Tuple[np.ndarray, np.ndarray]:
     labels = np.unique(labels_img)
     labels = labels[labels != 0]
     labels1, labels2, dists = [], [], []
-    dmax = int(np.ceil(max_distance)) if max_distance > 0.0 else None
+    dmax = int(np.ceil(max_dist)) if max_dist > 0.0 else None
     for label in labels:
         if dmax is not None:
             patch_ind = np.nonzero(labels_img == label)
@@ -89,11 +89,11 @@ def get_euclidean_contour_distance_neighbors(
                 for neighbor_label in current_neighbor_labels
             ]
         )
-        if max_distance > 0.0:
+        if max_dist > 0.0:
             current_neighbor_labels = current_neighbor_labels[
-                current_dists <= max_distance
+                current_dists <= max_dist
             ]
-            current_dists = current_dists[current_dists <= max_distance]
+            current_dists = current_dists[current_dists <= max_dist]
         if max_k > 0 and len(current_neighbor_labels) > max_k:
             knn_ind = np.argpartition(current_dists, max_k - 1)[:max_k]
             current_neighbor_labels = current_neighbor_labels[knn_ind]
@@ -111,13 +111,13 @@ def get_euclidean_expansion_distance_neighbors(
     post_expansion_connectivity: int = 4,
 ) -> np.ndarray:
     if post_expansion_connectivity == 4:
-        max_distance = 1.0
+        max_dist = 1.0
     elif post_expansion_connectivity == 8:
-        max_distance = 1.5  # 2**0.5 + eps
+        max_dist = 1.5  # 2**0.5 + eps
     else:
         raise ValueError("`post_expansion_connectivity` must be 4 or 8.")
     expanded_labels_img = _expand_euclidean(labels_img, expansion_dist)
     neighbors, _ = get_euclidean_contour_distance_neighbors(
-        expanded_labels_img, max_distance=max_distance
+        expanded_labels_img, max_dist=max_dist
     )
     return neighbors
