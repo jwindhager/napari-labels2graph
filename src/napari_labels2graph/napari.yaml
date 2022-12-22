@@ -1,0 +1,4 @@
+name: napari-labels2graph
+display_name: napari-labels2graph
+contributions:
+  commands:
