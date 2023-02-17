@@ -1,5 +1,8 @@
 # napari-labels2graph
 
+> **Warning**
+> This repository has been archived, please refer to [jwindhager/napari-labels2graph](https://github.com/jwindhager/napari-labels2graph).
+
 [![License MIT](https://img.shields.io/pypi/l/napari-labels2graph.svg?color=green)](https://github.com/BodenmillerGroup/napari-labels2graph/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/napari-labels2graph.svg?color=green)](https://pypi.org/project/napari-labels2graph)
 [![Python Version](https://img.shields.io/pypi/pyversions/napari-labels2graph.svg?color=green)](https://python.org)
