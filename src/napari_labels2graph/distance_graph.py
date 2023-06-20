@@ -68,13 +68,13 @@ def get_euclidean_contour_distance_neighbors(
     for label in labels:
         if dmax is not None:
             patch_ind = np.nonzero(labels_img == label)
-            patch_slices = [
+            patch_slices = tuple(
                 slice(
                     max(0, np.amin(ind) - dmax),
                     min(labels_img.shape[dim], np.amax(ind) + dmax + 1),
                 )
                 for dim, ind in enumerate(patch_ind)
-            ]
+            )
             patch = labels_img[patch_slices]
             patch_labels = np.unique(patch)
             patch_labels = patch_labels[patch_labels != 0]
