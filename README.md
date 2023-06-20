@@ -1,13 +1,10 @@
 # napari-labels2graph
 
-> **Warning**
-> This repository has been archived, please refer to [jwindhager/napari-labels2graph](https://github.com/jwindhager/napari-labels2graph).
-
-[![License MIT](https://img.shields.io/pypi/l/napari-labels2graph.svg?color=green)](https://github.com/BodenmillerGroup/napari-labels2graph/raw/main/LICENSE)
+[![License MIT](https://img.shields.io/pypi/l/napari-labels2graph.svg?color=green)](https://github.com/jwindhager/napari-labels2graph/raw/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/napari-labels2graph.svg?color=green)](https://pypi.org/project/napari-labels2graph)
 [![Python Version](https://img.shields.io/pypi/pyversions/napari-labels2graph.svg?color=green)](https://python.org)
-[![tests](https://github.com/BodenmillerGroup/napari-labels2graph/workflows/tests/badge.svg)](https://github.com/BodenmillerGroup/napari-labels2graph/actions)
-[![codecov](https://codecov.io/gh/BodenmillerGroup/napari-labels2graph/branch/main/graph/badge.svg)](https://codecov.io/gh/BodenmillerGroup/napari-labels2graph)
+[![tests](https://github.com/jwindhager/napari-labels2graph/workflows/tests/badge.svg)](https://github.com/jwindhager/napari-labels2graph/actions)
+[![codecov](https://codecov.io/gh/jwindhager/napari-labels2graph/branch/main/graph/badge.svg)](https://codecov.io/gh/jwindhager/napari-labels2graph)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-labels2graph)](https://napari-hub.org/plugins/napari-labels2graph)
 
 A napari plugin to create spatial graphs from labels layers
@@ -30,7 +27,7 @@ You can install `napari-labels2graph` via [pip]:
 
 To install latest development version:
 
-    pip install git+https://github.com/BodenmillerGroup/napari-labels2graph.git
+    pip install git+https://github.com/jwindhager/napari-labels2graph.git
 
 ## Contributing
 
@@ -51,7 +48,7 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [@napari]: https://github.com/napari
 [MIT]: http://opensource.org/licenses/MIT
 [cookiecutter-napari-plugin]: https://github.com/napari/cookiecutter-napari-plugin
-[file an issue]: https://github.com/BodenmillerGroup/napari-labels2graph/issues
+[file an issue]: https://github.com/jwindhager/napari-labels2graph/issues
 [napari]: https://github.com/napari/napari
 [tox]: https://tox.readthedocs.io/en/latest/
 [pip]: https://pypi.org/project/pip/
