@@ -17,13 +17,13 @@ This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookie
 
 During development of the graph layer, pre-install the following dependencies:
 
-    pip install "git+https://github.com/JoOkuma/napari-graph.git@undirected-graph#egg=napari-graph"
-    pip install "git+https://github.com/JoOkuma/napari.git@graph-layer#egg=napari[all]"
-    pip install "git+https://github.com/jwindhager/npe2@graph-layer#egg=npe2"
+    pip install "git+https://github.com/JoOkuma/napari-graph.git@api-improvement#egg=napari-graph"
+    pip install "git+https://github.com/JoOkuma/napari.git@napari-graph-2023#egg=napari[all]"
+    pip install "git+https://github.com/JoOkuma/npe2@graph#egg=npe2"
 
-You can install `napari-labels2graph` via [pip]:
+<!-- You can install `napari-labels2graph` via [pip]:
 
-    pip install napari-labels2graph
+    pip install napari-labels2graph -->
 
 To install latest development version:
 
