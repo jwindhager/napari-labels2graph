@@ -30,6 +30,7 @@ def make_delaunay_graph_layer(
     furthest_site: bool = False,
     incremental: bool = False,
     qhull_options: str = "Qbb Qc Qz Q12",
+    layer_name: str = "New Delaunay graph",
 ) -> None:
     labels_img = np.asarray(labels_layer.data)
     props = regionprops(labels_img)
@@ -43,7 +44,7 @@ def make_delaunay_graph_layer(
         qhull_options=qhull_options,
     )
     graph = UndirectedGraph(edges=neighbors, coords=centroids)
-    graph_layer = GraphLayer(graph)
+    graph_layer = GraphLayer(graph, name=layer_name)
     viewer.add_layer(graph_layer)
 
 
@@ -62,6 +63,7 @@ def make_distance_graph_layer(
     maximum_distance: float = 0.0,
     maximum_k_neighbors: int = 0,
     post_expansion_connectivity: int = 4,
+    layer_name: str = "New distance graph",
 ) -> None:
     labels_img = np.asarray(labels_layer.data)
     props = regionprops(labels_img)
@@ -99,5 +101,5 @@ def make_distance_graph_layer(
         graph = DirectedGraph(edges=neighbors, coords=centroids)
     else:
         graph = UndirectedGraph(edges=neighbors, coords=centroids)
-    graph_layer = GraphLayer(graph)
+    graph_layer = GraphLayer(graph, name=layer_name)
     viewer.add_layer(graph_layer)
